@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/plyr@3/dist/plyr.css">
+    <script
+        src="https://cdnjs.cloudflare.com/polyfill/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL"></script>
+    <script src="https://unpkg.com/plyr@3"></script>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdn.vidstack.io/player/theme.css" />
+    <link rel="stylesheet" href="https://cdn.vidstack.io/player/video.css" />
+</head>
+
+<body>
+    <h1>Plyr</h1>
+    <div class="plyr__video-embed" id="player">
+        <iframe
+            src="https://player.vimeo.com/video/1049449608?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            title="Nanette Carter"></iframe>
+    </div>
+    <script>
+        // Change the second argument to your options:
+        // https://github.com/sampotts/plyr/#options
+        const players = new Plyr('#player', { captions: { active: true } });
+
+        // Expose player so it can be used from the console
+        window.players = players;
+    </script>
+
+    <h1>Vidstack</h1>
+    <div class="plyr__video-embed" id="player">
+        <iframe
+        id="target"
+            src="https://player.vimeo.com/video/1049449608?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            title="Nanette Carter"  ></iframe>
+    </div>
+    <script type="module">
+        import { VidstackPlayer, VidstackPlayerLayout } from 'https://cdn.vidstack.io/player';
+
+        const player = await VidstackPlayer.create({
+          target: '#target',
+          title: 'Sprite Fight',
+          src: 'vimeo/1049449608',
+          poster: 'https://files.vidstack.io/sprite-fight/poster.webp',
+          layout: new VidstackPlayerLayout({
+            thumbnails: 'https://files.vidstack.io/sprite-fight/thumbnails.vtt',
+          }),
+        });
+      </script>
+
+    <h1>Not Custom</h1>
+    <div class="container">
+        <iframe
+            src="https://player.vimeo.com/video/1049449608?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;"
+            title="Nanette Carter"></iframe>
+    </div>
+</body>
+
+</html>

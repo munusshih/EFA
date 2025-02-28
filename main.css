@@ -1,5 +1,15 @@
-.container{
+:root {
+    --plyr-color-main: #1ac266;
+}
+
+.container {
     position: relative;
     width: 100%;
-    display: flex;
+    display: block;
+    padding-bottom: 56.25%;
+}
+
+.vds-slider {
+    --media-slider-track-bg: #1ac266;
+    --media-slider-thumb-bg: blue;
 }
